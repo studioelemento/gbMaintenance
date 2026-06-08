@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #fcfbf8;
+    --bg-color: #FDFCF8;
     --text-primary: #1b3b22;
     --text-secondary: #5a6d5f;
     --accent-green: #4f8a55;
@@ -21,11 +21,53 @@ html, body {
     font-size: 16.5px; /* Base font size increased to create a zoomed-in layout effect */
 }
 
+html {
+    background-color: var(--bg-color) !important;
+    min-height: 100vh;
+}
+
 body {
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-primary);
     font-family: 'Inter', sans-serif;
     line-height: 1.3;
+}
+
+/* Corner Decorations */
+.decoration.top-left,
+.decoration.bottom-left,
+.decoration.bottom-right {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.decoration.top-left {
+    top: 0;
+    left: 0;
+    width: 300px; /* Adjust size based on design */
+}
+
+.decoration.bottom-left {
+    bottom: 0;
+    left: 0;
+    width: 200px; /* Adjust size based on design */
+}
+
+.decoration.bottom-right {
+    bottom: 0;
+    right: 0;
+    width: 200px; /* Adjust size based on design */
+}
+
+@media (max-width: 800px) {
+    .decoration.top-left,
+    .decoration.bottom-left,
+    .decoration.bottom-right {
+        display: none;
+    }
+  
+    
 }
 
 /* Background elements simulating leaf shapes */
@@ -56,7 +98,7 @@ body::after {
 .container {
     max-width: 1200px; 
     margin: 0 auto;
-    padding: 2vh 2rem;
+    padding: 2vh 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -77,24 +119,11 @@ header {
     gap: 0.1rem;
 }
 
-.logo svg {
-    width: 20px;
-    height: 20px;
-}
-
-.brand-name {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: var(--text-primary);
-    line-height: 1;
-}
-
-.brand-tagline {
-    font-size: 0.4rem;
-    letter-spacing: 1px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
+.logo img {
+    height: 110px; /* Adjust height as needed */
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 /* Hero Section */
@@ -329,9 +358,11 @@ footer {
     flex-shrink: 0;
 }
 
-.feature-icon svg {
-    width: 16px;
-    height: 16px;
+.feature-icon svg,
+.feature-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 .feature-text h4 {
@@ -343,12 +374,14 @@ footer {
 .feature-text p {
     font-size: 0.6rem;
     color: var(--text-secondary);
+    display: block;
 }
 
 /* Responsive fallback */
 @media (max-width: 800px) {
     html, body {
         height: auto;
+        min-height: 100vh;
         overflow: auto;
     }
     .container {
@@ -404,6 +437,6 @@ footer {
         font-size: 0.6rem;
     }
     .feature-text p {
-        font-size: 0.5rem;
+        display: none;
     }
 }
