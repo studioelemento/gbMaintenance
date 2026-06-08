@@ -354,23 +354,56 @@ footer {
     .container {
         height: auto;
         justify-content: flex-start;
-        gap: 2rem;
+        padding: 3vh 1.5rem;
+        gap: 2.5rem;
     }
     .hero-section {
-        flex-direction: column;
+        flex-direction: column-reverse;
         text-align: center;
-        gap: 1rem;
+        gap: 1.5rem;
+    }
+    .hero-image {
+        flex: none;
+        width: 100%;
+    }
+    .hero-image img {
+        width: 100%;
+        max-height: 250px;
+    }
+    .hero-content {
+        flex: none;
+        width: 100%;
     }
     .hero-content p {
-        margin: 0 auto 1rem;
+        margin: 0 auto 1.5rem;
     }
     .info-box {
         margin: 0 auto;
+        justify-content: center;
     }
-    footer {
-        grid-template-columns: repeat(2, 1fr);
+    .info-text {
+        text-align: left;
     }
     .form-row-3 {
         grid-template-columns: 1fr;
+    }
+    footer {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 1rem 0.5rem;
+    }
+    .feature {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.4rem;
+        align-items: center;
+    }
+    .feature-icon {
+        margin-bottom: 0.2rem;
+    }
+    .feature-text h4 {
+        font-size: 0.6rem;
+    }
+    .feature-text p {
+        font-size: 0.5rem;
     }
 }
